@@ -1,4 +1,4 @@
-# API para exibição dos 5 repositórios C# mais antigos da [Take](github.com/takenet) no GitHub
+# API para exibição dos 5 repositórios C# mais antigos da [Take](https://github.com/takenet) no GitHub
 
 Essa solução foi desenvolvida usando o localhost, como forma de se evitar gastos com a utilização de algum serviço para disponibilização da API. Portanto, se quiser utilizá-la, é necessário instalar as dependências presentes no arquivo package-lock.json.
 
