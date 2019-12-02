@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
-const http = require('http');
 
 // Functions that will be used.
 function getURL(url) {
