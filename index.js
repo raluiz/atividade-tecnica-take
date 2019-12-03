@@ -152,4 +152,30 @@ app.get('/repositories/:user/:language/:i', (req, res) => {
 	}
 });
 
+app.get('/repositories/:user/:language/:i/:j', (req, res) => {
+	/*
+	* Returns an user's i oldest repos that has a specific language and returns jth repo.
+	*/
+	const data = getData(req);
+	var rep = [];
+	
+	if(data == null) {
+		res.send("User not found");
+	} else {
+		const i = parseInt(req.params.i);
+		const j = parseInt(req.params.j);
+		
+		var rep = getByLanguage(data, req);
+		
+		rep = order(rep);
+		
+		if(rep.length >= i && (j + 1) <= i) {
+			rep = get_oldest(rep, i);
+			res.send(JSON.stringify(rep[j]));
+		} else {
+			res.send(null);
+		}
+	}
+});
+
 app.listen(3000, () => console.log('Listening on port 3000'));
