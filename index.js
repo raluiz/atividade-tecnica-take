@@ -95,16 +95,17 @@ app.get('/repositories/:user', (req, res) => {
 	}
 });
 
-app.get('/repositories/:user/img', (req, res) => {
+app.get('/repositories/:user/owner', (req, res) => {
 	/*
-	* Returns a link to repositories' owner img.
+	* Returns repositories' owner data.
 	*/
 	const data = getData(req);
 	
 	if(data == null) {
 		res.send(null);
 	} else {
-		res.send(JSON.stringify(data[0].owner.avatar_url));
+		var owner = data[0].owner;
+		res.send(JSON.stringify(owner));
 	}
 });
 
