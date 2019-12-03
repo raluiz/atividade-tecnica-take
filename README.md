@@ -5,9 +5,10 @@ Essa solução foi desenvolvida usando o localhost, como forma de se evitar gast
 ---
 
 ## Execução
-  * Após a instalação das dependências, executar o comando ''' node index.js '''.
+  * Use o comando `npc ci` na pasta onde estão os arquivos da API
+  * Execute o arquivo index.js: `node index.js`.
   * Importar os arquivos de configuração do bot e colocá-los no [BLiP](https://portal.blip.ai).
-  * Simples assim, ;)
+  * Simples assim ;)
   
 ## Importante
   O bot executará requisições para o localhost. Portanto, ele só funcionará enquanto a API estiver sendo executada.
