@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+const PORT = process.env.PORT || 3000;
 
 // Functions that will be used.
 function getURL(url) {
@@ -94,6 +95,19 @@ app.get('/repositories/:user', (req, res) => {
 	}
 });
 
+app.get('/repositories/:user/img', (req, res) => {
+	/*
+	* Returns a link to repositories' owner img.
+	*/
+	const data = getData(req);
+	
+	if(data == null) {
+		res.send(null);
+	} else {
+		res.send(JSON.stringify(data[0].owner.avatar_url));
+	}
+});
+
 app.get('/repositories/:user/:language', (req, res) => {
 	/*
 	* Returns data about an user's repo that has a specific language.
@@ -111,19 +125,6 @@ app.get('/repositories/:user/:language', (req, res) => {
 		} else {
 			res.send(null);
 		}
-	}
-});
-
-app.get('/repositories/:user/img', (req, res) => {
-	/*
-	* Returns a link to repositories' owner img.
-	*/
-	const data = getData(req);
-	
-	if(data == null) {
-		res.send(null);
-	} else {
-		res.send(data[0].owner.avatar_url);
 	}
 });
 
@@ -178,4 +179,6 @@ app.get('/repositories/:user/:language/:i/:j', (req, res) => {
 	}
 });
 
-app.listen(3000, () => console.log('Listening on port 3000'));
+app.listen(PORT, () => {
+    console.log(`Running on port ${ PORT }`);
+});
