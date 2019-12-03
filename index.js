@@ -36,7 +36,7 @@ function order(rep) {
 
 function get_oldest(rep, n) {
 	/*
-	* Get avatar, title and subtitle from the five oldest rep
+	* Get n oldest repos.
 	*/
 	var oldest = [];
 	
@@ -78,14 +78,14 @@ app.get('/repositories/C_', (req, res) => {
 
 app.get('/repositories/img', (req, res) => {
 	/*
-	* Returns a link to repositories' owner img.
+	* Returns a link to repositories' owner avatar.
 	*/
 	res.send(data[0].owner.avatar_url);
 });
 
 app.get('/repositories/C_/:n', (req, res) => {
 	/*
-	* Returns a repository data.
+	* Returns a C# repository data.
 	*/
 	const n = parseInt(req.params.n);
 	
